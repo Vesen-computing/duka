@@ -76,11 +76,11 @@ class LoginScreen extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          color: Colors.black12),
+                          color: Colors.black.withOpacity(.1)),
                       child: textFieldWidget(
-                        label: 'Enter Username',
-                        controller: _usernameController,
-                      ),
+                          label: 'Enter Username',
+                          controller: _usernameController,
+                          prefixIcon: const Icon(Icons.person_2_sharp)),
                     ),
                     const SizedBox(
                       height: 10,
@@ -88,12 +88,12 @@ class LoginScreen extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          color: Colors.black12),
+                          color: Colors.black.withOpacity(.1)),
                       child: textFieldWidget(
-                        label: 'Enter Password',
-                        controller: _passwordController,
-                        password: true,
-                      ),
+                          label: 'Enter Password',
+                          controller: _passwordController,
+                          password: true,
+                          prefixIcon: const Icon(Icons.lock_outline)),
                     ),
                     const SizedBox(
                       height: 10,
@@ -119,15 +119,18 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 15),
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          textBaseline: TextBaseline.alphabetic,
-                          color: colors['primary'],
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 15),
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            fontFamily: 'Ubuntu',
+                            fontWeight: FontWeight.bold,
+                            textBaseline: TextBaseline.alphabetic,
+                            color: colors['primary'],
+                          ),
                         ),
                       ),
                     )
@@ -144,7 +147,8 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  TextField textFieldWidget({label, controller, password = false, props}) {
+  TextField textFieldWidget(
+      {label, controller, password = false, props, prefixIcon}) {
     var suffixIcon = password
         ? IconButton(
             icon: const Icon(Icons.remove_red_eye_outlined),
@@ -166,6 +170,7 @@ class LoginScreen extends StatelessWidget {
           border: InputBorder.none,
           floatingLabelAlignment: FloatingLabelAlignment.start,
           suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           labelStyle: const TextStyle(
             fontFamily: 'Ubuntu',
             color: Colors.grey,
