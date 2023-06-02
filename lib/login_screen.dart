@@ -17,126 +17,128 @@ class LoginScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Icon(Icons.shield_outlined,
-                    size: 130, color: colors['secondary']),
-                Icon(
-                  Icons.lock_outline_sharp,
-                  size: 40,
-                  color: colors['secondary3'],
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Column(
-              children: [
-                Text(
-                  'Savey',
-                  style: TextStyle(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Stack(
+              //   alignment: AlignmentDirectional.center,
+              //   children: [
+              //     Icon(Icons.shield_outlined,
+              //         size: 130, color: colors['primary']),
+              //     Icon(
+              //       Icons.lock_outline_sharp,
+              //       size: 40,
+              //       color: colors['primary'],
+              //     ),
+              //   ],
+              // ),
+              const SizedBox(
+                height: 30,
+              ),
+              Column(
+                children: [
+                  Text(
+                    'Savey',
+                    style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: colors["primary"] as Color),
+                  ),
+                  const Text(
+                    'Welcome Back!',
+                    style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
-                      color: colors["primary"] as Color),
-                ),
-                const Text(
-                  'Welcome Back!',
-                  style: TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Text(
-                  'Use your credentials to access your account',
-                  style: TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6),
-                        color: Colors.black12),
-                    child: textFieldWidget(
-                      label: 'Enter Username',
-                      controller: _usernameController,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6),
-                        color: Colors.black12),
-                    child: textFieldWidget(
-                      label: 'Enter Password',
-                      controller: _passwordController,
-                      password: true,
+                  const Text(
+                    'Use your credentials to access your account',
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 60,
-                    margin: const EdgeInsets.only(top: 1),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: colors["primary"],
+                ],
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          color: Colors.black12),
+                      child: textFieldWidget(
+                        label: 'Enter Username',
+                        controller: _usernameController,
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, route.dashboard);
-                      },
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontSize: 20,
-                          color: colors['white'] as Color,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          color: Colors.black12),
+                      child: textFieldWidget(
+                        label: 'Enter Password',
+                        controller: _passwordController,
+                        password: true,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 60,
+                      margin: const EdgeInsets.only(top: 1),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: colors["primary"],
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, route.dashboard);
+                        },
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            fontFamily: 'Ubuntu',
+                            fontSize: 20,
+                            color: colors['white'] as Color,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 15),
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        textBaseline: TextBaseline.alphabetic,
-                        color: colors['secondary'],
+                    Container(
+                      margin: const EdgeInsets.only(top: 15),
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          textBaseline: TextBaseline.alphabetic,
+                          color: colors['primary'],
+                        ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 120,
-            ),
-          ],
+              const SizedBox(
+                height: 120,
+              ),
+            ],
+          ),
         ),
       ),
     );

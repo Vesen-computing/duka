@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'constants/theme.dart';
-import 'login_screen.dart';
 import 'constants/routes.dart' as route;
 
 void main() {
