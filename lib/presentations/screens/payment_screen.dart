@@ -3,21 +3,13 @@ import 'package:savey/presentations/widgets/payment_checkbox_row.dart';
 import 'package:savey/presentations/widgets/payment_text_widget.dart';
 
 class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({Key? key, required this.title, required this.page})
-      : super(key: key);
-
-  factory PaymentScreen.fromRouteArguments(Map<String, dynamic> arguments) {
-    final String title = arguments['title'] ?? 'Payment screen';
-    final String page = arguments['page'] ?? 'Tv';
-
-    return PaymentScreen(title: title, page: page);
-  }
-
-  final String title;
-  final String page;
+  const PaymentScreen({Key? key, required this.arguments}) : super(key: key);
+  final Map<String, dynamic> arguments;
 
   @override
   Widget build(BuildContext context) {
+    String title = arguments["title"];
+    String page = arguments["page"];
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
