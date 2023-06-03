@@ -15,7 +15,8 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // backgroundColor: Colors.blue,
+      backgroundColor: primaryColor,
+      drawer: const CustomDrawer(),
       body: Column(
         children: [
           Container(
