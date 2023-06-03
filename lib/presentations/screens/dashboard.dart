@@ -140,48 +140,10 @@ class Dashboard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 30,
-                        width: 80,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: primaryColor,
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(color: primaryColor),
-                        ),
-                        child: const Text(
-                          'Today',
-                          maxLines: 1,
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      Container(
-                        height: 30,
-                        width: 80,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.grey)),
-                        child: const Text('This week', maxLines: 1),
-                      ),
-                      Container(
-                        height: 30,
-                        width: 80,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.grey)),
-                        child: const Text('This Month', maxLines: 1),
-                      ),
-                      Container(
-                        height: 30,
-                        width: 80,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.grey)),
-                        child: const Text('Six Months', maxLines: 1),
-                      ),
+                      _buildDateTransaction(title: 'Today', active: true),
+                      _buildDateTransaction(title: 'This Week'),
+                      _buildDateTransaction(title: 'This Month'),
+                      _buildDateTransaction(title: 'Six Months'),
                     ],
                   ),
                   const SizedBox(height: 15),
@@ -217,6 +179,32 @@ class Dashboard extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Container _buildDateTransaction(
+      {required String title, bool active = false}) {
+    return Container(
+      height: 30,
+      width: 80,
+      alignment: Alignment.center,
+      decoration: active
+          ? BoxDecoration(
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(color: primaryColor),
+            )
+          : BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(color: Colors.grey),
+            ),
+      child: Text(
+        title,
+        maxLines: 1,
+        style: TextStyle(
+          color: active ? whiteColor : Colors.black,
+        ),
       ),
     );
   }
