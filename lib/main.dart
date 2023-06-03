@@ -18,17 +18,22 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: route.controller,
       initialRoute: route.login,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: primaryMaterialColor,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: primaryMaterialColor,
         ),
         textTheme: const TextTheme(
           bodyLarge: TextStyle(
             color: Colors.black,
-          ), // Customize the default text color here
-          // You can customize other text styles like headline1, subtitle1, etc.
+          ),
         ),
         iconTheme: const IconThemeData(
-            color: primaryColor), // Customize the default icon color here
+          color: primaryColor,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: primaryColor,
+          foregroundColor: whiteColor,
+          centerTitle: true,
+        ),
         useMaterial3: true,
       ),
     );

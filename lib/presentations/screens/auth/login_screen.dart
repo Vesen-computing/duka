@@ -103,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontSize: 20,
-                            color: whiteColor as Color,
+                            color: whiteColor,
                           ),
                         ),
                       ),
