@@ -11,9 +11,7 @@ class CheckBoxRow extends StatefulWidget {
 
 class _CheckBoxRowState extends State<CheckBoxRow> {
   bool mpesaChecked = true;
-
   bool airtelChecked = false;
-
   bool telkomChecked = false;
 
   @override
@@ -84,9 +82,7 @@ class _CheckBoxRowState extends State<CheckBoxRow> {
             width: 13,
           ),
           Text(label),
-          const SizedBox(
-            width: 30,
-          ),
+          const SizedBox(width: 30),
         ],
       ),
     );
