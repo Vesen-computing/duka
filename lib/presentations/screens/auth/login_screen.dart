@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'constants/theme.dart';
-import 'constants/routes.dart' as route;
+import '../../../constants/theme.dart';
+import '../../../constants/routes.dart' as route;
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../dashboard.dart';
-import '../login_screen.dart';
+import '../presentations/screens/dashboard.dart';
+import '../presentations/screens/auth/login_screen.dart';
 
 const String login = 'login';
 const String dashboard = 'dashboard';
