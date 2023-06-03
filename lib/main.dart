@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,17 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: route.controller,
       initialRoute: route.login,
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: colors['primary'] as Color),
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: primaryMaterialColor,
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(
+            color: Colors.black,
+          ), // Customize the default text color here
+          // You can customize other text styles like headline1, subtitle1, etc.
+        ),
+        iconTheme: const IconThemeData(
+            color: primaryColor), // Customize the default icon color here
         useMaterial3: true,
       ),
     );

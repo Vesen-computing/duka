@@ -13,31 +13,20 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: colors['white'],
+        backgroundColor: whiteColor,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: SizedBox(
+        child: Container(
+          color: whiteColor,
           height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Stack(
-              //   alignment: AlignmentDirectional.center,
-              //   children: [
-              //     Icon(Icons.shield_outlined,
-              //         size: 130, color: colors['primary']),
-              //     Icon(
-              //       Icons.lock_outline_sharp,
-              //       size: 40,
-              //       color: colors['primary'],
-              //     ),
-              //   ],
-              // ),
               const SizedBox(
                 height: 30,
               ),
-              Column(
+              const Column(
                 children: [
                   Text(
                     'Savey',
@@ -45,9 +34,9 @@ class LoginScreen extends StatelessWidget {
                         fontFamily: 'Ubuntu',
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
-                        color: colors["primary"] as Color),
+                        color: primaryColor),
                   ),
-                  const Text(
+                  Text(
                     'Welcome Back!',
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
@@ -55,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'Use your credentials to access your account',
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
@@ -104,17 +93,17 @@ class LoginScreen extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 1),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: colors["primary"],
+                          backgroundColor: primaryColor,
                         ),
                         onPressed: () {
                           Navigator.pushNamed(context, route.dashboard);
                         },
-                        child: Text(
+                        child: const Text(
                           'Login',
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontSize: 20,
-                            color: colors['white'] as Color,
+                            color: whiteColor as Color,
                           ),
                         ),
                       ),
@@ -123,13 +112,13 @@ class LoginScreen extends StatelessWidget {
                       onTap: () {},
                       child: Container(
                         margin: const EdgeInsets.only(top: 15),
-                        child: Text(
+                        child: const Text(
                           'Forgot Password?',
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontWeight: FontWeight.bold,
                             textBaseline: TextBaseline.alphabetic,
-                            color: colors['primary'],
+                            color: primaryColor,
                           ),
                         ),
                       ),
