@@ -16,10 +16,10 @@ Route<dynamic> controller(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const Dashboard());
     case payment:
       return MaterialPageRoute(
-          builder: (context) => const PaymentScreen(
-                page: 'tv',
-                title: 'Pay Tv',
-              ));
+        builder: (context) => PaymentScreen(
+          arguments: settings.arguments as Map<String, dynamic>,
+        ),
+      );
     default:
       throw ('Unimplemented route');
   }

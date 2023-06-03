@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xff2cb34a);
 const whiteColor = Color.fromRGBO(255, 255, 255, 1);
-
+const deepBlueColor = Color(0xff2f80ed);
+const lightBlueColor = Color(0xff00c3ff);
 const primaryMaterialColor = MaterialColor(0xFF2CB34A, {
   50: Color(0xFFE2F7E5),
   100: Color(0xFFB6E7B6),

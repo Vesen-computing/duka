@@ -1,10 +1,12 @@
 // ignore_for_file: void_checks
 
 import 'package:flutter/material.dart';
+import 'package:savey/constants/theme.dart';
 
 import '../widgets/custom_drawer.dart';
 import '../widgets/featured_service.dart';
 import '../widgets/recent_transaction_card.dart';
+import '../../constants/routes.dart' as route;
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -13,13 +15,12 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.blue,
-      drawer: const CustomDrawer(),
+      // backgroundColor: Colors.blue,
       body: Column(
         children: [
           Container(
             height: size.height * .30,
-            color: Colors.blue,
+            color: primaryColor,
             child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -46,9 +47,13 @@ class Dashboard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    Text('Good Morning John!',
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: Colors.white, fontWeight: FontWeight.w500)),
+                    Text(
+                      'Good Morning John!',
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
                     const SizedBox(height: 10),
                     Text('Total Balance',
                         style: Theme.of(context)
@@ -86,20 +91,44 @@ class Dashboard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FeaturedServiceWidget(
-                          onTap: () {},
-                          color: Colors.green,
-                          icon: Icons.phone_android_rounded,
-                          title: 'Buy airtime'),
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            route.payment,
+                            arguments: {
+                              "page": "Airtime",
+                              "title": "Buy airtime"
+                            },
+                          );
+                        },
+                        color: primaryColor,
+                        icon: Icons.phone_android_rounded,
+                        title: 'Buy airtime',
+                      ),
                       FeaturedServiceWidget(
-                          onTap: () {},
-                          color: Colors.blue,
-                          icon: Icons.live_tv_outlined,
-                          title: 'Pay Tv'),
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            route.payment,
+                            arguments: {"page": "Tv", "title": "Pay Tv"},
+                          );
+                        },
+                        color: deepBlueColor,
+                        icon: Icons.live_tv_outlined,
+                        title: 'Pay Tv',
+                      ),
                       FeaturedServiceWidget(
-                          onTap: () {},
-                          color: Colors.green,
-                          icon: Icons.water_drop_rounded,
-                          title: 'Nairobi water'),
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            route.payment,
+                            arguments: {
+                              "page": "Nairobi Water",
+                              "title": "Pay Nairobi water"
+                            },
+                          );
+                        },
+                        color: lightBlueColor,
+                        icon: Icons.water_drop_rounded,
+                        title: 'Nairobi water',
+                      ),
                     ],
                   ),
                   const SizedBox(height: 15),
@@ -115,11 +144,15 @@ class Dashboard extends StatelessWidget {
                         width: 80,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.blueAccent)),
-                        child: const Text('Today',
-                            maxLines: 1, style: TextStyle(color: Colors.white)),
+                          color: primaryColor,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: primaryColor),
+                        ),
+                        child: const Text(
+                          'Today',
+                          maxLines: 1,
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                       Container(
                         height: 30,
@@ -154,31 +187,30 @@ class Dashboard extends StatelessWidget {
                   RecentTransactionCard(
                       title: 'Airtime',
                       icon: Icons.phone_android_rounded,
-                      iconColor: Colors.green,
-                      backgroundColor: Colors.red.shade50,
+                      iconColor: primaryColor,
                       amount: '-S423.43',
                       date: '10 oct 21'),
                   RecentTransactionCard(
-                      title: 'Pay Tv',
-                      icon: Icons.live_tv,
-                      iconColor: Colors.blue,
-                      backgroundColor: Colors.red.shade50,
-                      amount: 'S423.43',
-                      date: '10 oct 21'),
+                    title: 'Pay Tv',
+                    icon: Icons.live_tv,
+                    iconColor: deepBlueColor,
+                    amount: 'S423.43',
+                    date: '10 oct 21',
+                  ),
                   RecentTransactionCard(
-                      title: 'Nairobi water',
-                      icon: Icons.water_drop,
-                      iconColor: Colors.blue,
-                      backgroundColor: Colors.red.shade50,
-                      amount: '-S423.43',
-                      date: '10 oct 21'),
+                    title: 'Nairobi water',
+                    icon: Icons.water_drop,
+                    iconColor: lightBlueColor,
+                    amount: '-S423.43',
+                    date: '10 oct 21',
+                  ),
                   RecentTransactionCard(
-                      title: 'Airtime',
-                      icon: Icons.phone_android_rounded,
-                      iconColor: Colors.green,
-                      backgroundColor: Colors.red.shade50,
-                      amount: '-S423.43',
-                      date: '10 oct 21'),
+                    title: 'Airtime',
+                    icon: Icons.phone_android_rounded,
+                    iconColor: primaryColor,
+                    amount: '-S423.43',
+                    date: '10 oct 21',
+                  ),
                 ],
               ),
             ),
