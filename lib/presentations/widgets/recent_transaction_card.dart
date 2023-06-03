@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 class RecentTransactionCard extends StatelessWidget {
-  const RecentTransactionCard(
-      {super.key,
-      required this.title,
-      required this.amount,
-      required this.date,
-      required this.icon,
-      required this.iconColor,
-      required this.backgroundColor});
+  const RecentTransactionCard({
+    super.key,
+    required this.title,
+    required this.amount,
+    required this.date,
+    required this.icon,
+    required this.iconColor,
+  });
 
   final String title, amount, date;
   final IconData icon;
-  final Color iconColor, backgroundColor;
+  final Color iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class RecentTransactionCard extends StatelessWidget {
         children: [
           CircleAvatar(
               radius: 25,
-              backgroundColor: backgroundColor,
+              backgroundColor: Colors.red.shade50.withOpacity(.5),
               child: Icon(icon, color: iconColor)),
           const SizedBox(width: 10),
           Column(

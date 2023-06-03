@@ -38,7 +38,8 @@ class PaymentScreen extends StatelessWidget {
               const PaymentTextWidget(hintText: 'Receiver account number'),
               const SizedBox(height: 16),
               if (page.toLowerCase() == 'airtime') const SizedBox(height: 16),
-              const PaymentTextWidget(hintText: 'Receiver phone number'),
+              if (page.toLowerCase() == 'airtime')
+                const PaymentTextWidget(hintText: 'Receiver phone number'),
               SizedBox(height: size.height * .15),
               ElevatedButton(
                 onPressed: () {},

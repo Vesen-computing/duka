@@ -89,7 +89,7 @@ class Dashboard extends StatelessWidget {
                             },
                           );
                         },
-                        color: Colors.green,
+                        color: primaryColor,
                         icon: Icons.phone_android_rounded,
                         title: 'Buy airtime',
                       ),
@@ -100,7 +100,7 @@ class Dashboard extends StatelessWidget {
                             arguments: {"page": "Tv", "title": "Pay Tv"},
                           );
                         },
-                        color: primaryColor,
+                        color: deepBlueColor,
                         icon: Icons.live_tv_outlined,
                         title: 'Pay Tv',
                       ),
@@ -114,7 +114,7 @@ class Dashboard extends StatelessWidget {
                             },
                           );
                         },
-                        color: Colors.green,
+                        color: lightBlueColor,
                         icon: Icons.water_drop_rounded,
                         title: 'Nairobi water',
                       ),
@@ -176,31 +176,34 @@ class Dashboard extends StatelessWidget {
                   RecentTransactionCard(
                       title: 'Airtime',
                       icon: Icons.phone_android_rounded,
-                      iconColor: Colors.green,
-                      backgroundColor: Colors.red.shade50,
-                      amount: '-S423.43',
-                      date: '10 oct 21'),
-                  RecentTransactionCard(
-                      title: 'Pay Tv',
-                      icon: Icons.live_tv,
                       iconColor: primaryColor,
-                      backgroundColor: Colors.red.shade50,
-                      amount: 'S423.43',
-                      date: '10 oct 21'),
-                  RecentTransactionCard(
-                      title: 'Nairobi water',
-                      icon: Icons.water_drop,
-                      iconColor: Colors.blue,
-                      backgroundColor: Colors.red.shade50,
+                    
                       amount: '-S423.43',
                       date: '10 oct 21'),
                   RecentTransactionCard(
-                      title: 'Airtime',
-                      icon: Icons.phone_android_rounded,
-                      iconColor: Colors.green,
-                      backgroundColor: Colors.red.shade50,
-                      amount: '-S423.43',
-                      date: '10 oct 21'),
+                    title: 'Pay Tv',
+                    icon: Icons.live_tv,
+                    iconColor: deepBlueColor,
+                  
+                    amount: 'S423.43',
+                    date: '10 oct 21',
+                  ),
+                  RecentTransactionCard(
+                    title: 'Nairobi water',
+                    icon: Icons.water_drop,
+                    iconColor: lightBlueColor,
+                    
+                    amount: '-S423.43',
+                    date: '10 oct 21',
+                  ),
+                  RecentTransactionCard(
+                    title: 'Airtime',
+                    icon: Icons.phone_android_rounded,
+                    iconColor: primaryColor,
+                    
+                    amount: '-S423.43',
+                    date: '10 oct 21',
+                  ),
                 ],
               ),
             ),

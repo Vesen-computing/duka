@@ -10,7 +10,7 @@ class CheckBoxRow extends StatefulWidget {
 }
 
 class _CheckBoxRowState extends State<CheckBoxRow> {
-  bool mpesaChecked = false;
+  bool mpesaChecked = true;
 
   bool airtelChecked = false;
 
@@ -62,13 +62,13 @@ class _CheckBoxRowState extends State<CheckBoxRow> {
     required bool value,
     required Function(bool) onChanged,
   }) {
-    return Row(
-      children: [
-        GestureDetector(
-          onTap: () {
-            onChanged(!value);
-          },
-          child: Container(
+    return GestureDetector(
+      onTap: () {
+        onChanged(!value);
+      },
+      child: Row(
+        children: [
+          Container(
             width: 16,
             height: 16,
             decoration: BoxDecoration(
@@ -80,15 +80,15 @@ class _CheckBoxRowState extends State<CheckBoxRow> {
             ),
             child: null,
           ),
-        ),
-        const SizedBox(
-          width: 13,
-        ),
-        Text(label),
-        const SizedBox(
-          width: 30,
-        ),
-      ],
+          const SizedBox(
+            width: 13,
+          ),
+          Text(label),
+          const SizedBox(
+            width: 30,
+          ),
+        ],
+      ),
     );
   }
 }
