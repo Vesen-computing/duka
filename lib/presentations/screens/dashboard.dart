@@ -1,12 +1,14 @@
 // ignore_for_file: void_checks
 
 import 'package:flutter/material.dart';
+
 import 'package:savey/constants/theme.dart';
 
+import '../../constants/routes.dart' as route;
 import '../widgets/custom_drawer.dart';
+import '../widgets/date_transaction.dart';
 import '../widgets/featured_service.dart';
 import '../widgets/recent_transaction_card.dart';
-import '../../constants/routes.dart' as route;
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -137,13 +139,13 @@ class Dashboard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [Text('Recent transactions'), Text('See All')]),
                   const SizedBox(height: 15),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _buildDateTransaction(title: 'Today', active: true),
-                      _buildDateTransaction(title: 'This Week'),
-                      _buildDateTransaction(title: 'This Month'),
-                      _buildDateTransaction(title: 'Six Months'),
+                      DateTransaction(title: 'Today', active: true),
+                      DateTransaction(title: 'This Week'),
+                      DateTransaction(title: 'This Month'),
+                      DateTransaction(title: 'Six Months'),
                     ],
                   ),
                   const SizedBox(height: 15),
@@ -179,32 +181,6 @@ class Dashboard extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  Container _buildDateTransaction(
-      {required String title, bool active = false}) {
-    return Container(
-      height: 30,
-      width: 80,
-      alignment: Alignment.center,
-      decoration: active
-          ? BoxDecoration(
-              color: primaryColor,
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: primaryColor),
-            )
-          : BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: Colors.grey),
-            ),
-      child: Text(
-        title,
-        maxLines: 1,
-        style: TextStyle(
-          color: active ? whiteColor : Colors.black,
-        ),
       ),
     );
   }
