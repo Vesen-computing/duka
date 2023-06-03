@@ -14,10 +14,7 @@ class PaymentTextWidget extends StatelessWidget {
         ),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-        hintStyle: TextStyle(
-          color: Colors.grey[500],
-          fontSize: 16,
-        ),
+        hintStyle: TextStyle(color: Colors.grey[500], fontSize: 16),
       ),
     );
   }

@@ -12,11 +12,7 @@ class PaymentScreen extends StatelessWidget {
     String page = arguments["page"];
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          title,
-        ),
-      ),
+      appBar: AppBar(title: Text(title)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -25,10 +21,7 @@ class PaymentScreen extends StatelessWidget {
             children: [
               const Text(
                 'Select Service Provider',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
               const CheckBoxRow(),
@@ -46,11 +39,8 @@ class PaymentScreen extends StatelessWidget {
                 style: ButtonStyle(
                   fixedSize: MaterialStateProperty.all(Size(size.width, 50)),
                   padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10))),
                 ),
                 child: Text('PAY ${page.toUpperCase()}'),
               ),
