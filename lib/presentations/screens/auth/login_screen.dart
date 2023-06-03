@@ -4,8 +4,8 @@ import '../../../constants/theme.dart';
 import '../../../constants/routes.dart' as route;
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key, this.signUp = false});
-  final signUp;
+  LoginScreen({super.key});
+
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
