@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../constants/theme.dart';
 import '../../../constants/routes.dart' as route;
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key, this.signUp = false});
-  final signUp;
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -38,19 +37,11 @@ class LoginScreen extends StatelessWidget {
                         color: primaryColor),
                   ),
                   Text(
-                    'Welcome Back!',
+                    'Create An Account',
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'Use your credentials to access your account',
-                    style: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
@@ -68,13 +59,21 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(6),
                           color: Colors.black.withOpacity(.1)),
                       child: textFieldWidget(
-                          label: 'Enter Username',
+                          label: 'Enter Email',
                           controller: _usernameController,
                           prefixIcon: const Icon(Icons.person_2_sharp)),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    const SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          color: Colors.black.withOpacity(.1)),
+                      child: textFieldWidget(
+                          label: 'Enter Phone Number',
+                          controller: _usernameController,
+                          prefixIcon: const Icon(Icons.person_2_sharp)),
                     ),
+                    const SizedBox(height: 10),
                     Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
@@ -85,9 +84,7 @@ class LoginScreen extends StatelessWidget {
                           password: true,
                           prefixIcon: const Icon(Icons.lock_outline)),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Container(
                       width: double.infinity,
                       height: 60,
@@ -100,7 +97,7 @@ class LoginScreen extends StatelessWidget {
                           Navigator.pushNamed(context, route.dashboard);
                         },
                         child: const Text(
-                          'Login',
+                          'Sign Up',
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontSize: 20,
@@ -113,28 +110,13 @@ class LoginScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
-                          onTap: () {},
-                          child: Container(
-                            margin: const EdgeInsets.only(top: 15),
-                            child: const Text(
-                              'Forgot Password?',
-                              style: TextStyle(
-                                fontFamily: 'Ubuntu',
-                                fontWeight: FontWeight.bold,
-                                textBaseline: TextBaseline.alphabetic,
-                                color: primaryColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                        InkWell(
                           onTap: () {
-                            Navigator.of(context).pushNamed(route.signUp);
+                            Navigator.of(context).pushNamed(route.login);
                           },
                           child: Container(
                             margin: const EdgeInsets.only(top: 15),
                             child: const Text(
-                              'Create an account',
+                              'Already have an account? Login',
                               style: TextStyle(
                                 fontFamily: 'Ubuntu',
                                 fontWeight: FontWeight.bold,
