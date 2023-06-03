@@ -1,6 +1,9 @@
+// ignore_for_file: void_checks
+
 import 'package:flutter/material.dart';
 import 'package:savey/constants/theme.dart';
 
+import '../widgets/custom_drawer.dart';
 import '../widgets/featured_service.dart';
 import '../widgets/recent_transaction_card.dart';
 import '../../constants/routes.dart' as route;
@@ -12,7 +15,8 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // backgroundColor: Colors.blue,
+      backgroundColor: primaryColor,
+      drawer: const CustomDrawer(),
       body: Column(
         children: [
           Container(
@@ -23,15 +27,23 @@ class Dashboard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CircleAvatar(
-                            radius: 18,
-                            backgroundColor: Colors.white,
-                            child: Icon(Icons.menu_sharp)),
-                        CircleAvatar(radius: 30),
-                        Icon(Icons.notifications_outlined,
+                        Builder(
+                          builder: (context) {
+                            return GestureDetector(
+                              onTap: () => Scaffold.of(context).openDrawer(),
+                              child: const CircleAvatar(
+                                radius: 18,
+                                backgroundColor: Colors.white,
+                                child: Icon(Icons.menu_sharp),
+                              ),
+                            );
+                          },
+                        ),
+                        const CircleAvatar(radius: 30),
+                        const Icon(Icons.notifications_outlined,
                             size: 30, color: Colors.white)
                       ],
                     ),
@@ -177,14 +189,12 @@ class Dashboard extends StatelessWidget {
                       title: 'Airtime',
                       icon: Icons.phone_android_rounded,
                       iconColor: primaryColor,
-                    
                       amount: '-S423.43',
                       date: '10 oct 21'),
                   RecentTransactionCard(
                     title: 'Pay Tv',
                     icon: Icons.live_tv,
                     iconColor: deepBlueColor,
-                  
                     amount: 'S423.43',
                     date: '10 oct 21',
                   ),
@@ -192,7 +202,6 @@ class Dashboard extends StatelessWidget {
                     title: 'Nairobi water',
                     icon: Icons.water_drop,
                     iconColor: lightBlueColor,
-                    
                     amount: '-S423.43',
                     date: '10 oct 21',
                   ),
@@ -200,7 +209,6 @@ class Dashboard extends StatelessWidget {
                     title: 'Airtime',
                     icon: Icons.phone_android_rounded,
                     iconColor: primaryColor,
-                    
                     amount: '-S423.43',
                     date: '10 oct 21',
                   ),
