@@ -185,27 +185,27 @@ class Dashboard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 15),
-                  RecentTransactionCard(
+                  const RecentTransactionCard(
                       title: 'Airtime',
                       icon: Icons.phone_android_rounded,
                       iconColor: primaryColor,
                       amount: '-S423.43',
                       date: '10 oct 21'),
-                  RecentTransactionCard(
+                  const RecentTransactionCard(
                     title: 'Pay Tv',
                     icon: Icons.live_tv,
                     iconColor: deepBlueColor,
                     amount: 'S423.43',
                     date: '10 oct 21',
                   ),
-                  RecentTransactionCard(
+                  const RecentTransactionCard(
                     title: 'Nairobi water',
                     icon: Icons.water_drop,
                     iconColor: lightBlueColor,
                     amount: '-S423.43',
                     date: '10 oct 21',
                   ),
-                  RecentTransactionCard(
+                  const RecentTransactionCard(
                     title: 'Airtime',
                     icon: Icons.phone_android_rounded,
                     iconColor: primaryColor,
