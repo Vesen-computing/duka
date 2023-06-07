@@ -1,5 +1,11 @@
+import 'package:duka/logic/bloc/movies/movies_event.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../constants/constants.dart';
+import '../../logic/bloc/movies/movies_bloc.dart';
+import '../../logic/bloc/movies/movies_state.dart';
 import '../widgets/custom_sliverDelgate.dart';
 
 class MovieScreen extends StatelessWidget {
@@ -8,6 +14,7 @@ class MovieScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<MoviesBloc>().add(FetchMovies());
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: CustomScrollView(
@@ -24,16 +31,16 @@ class MovieScreen extends StatelessWidget {
                   'Now Playing',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                buildMovieList(),
+                buildMovieList(nowPlaying),
                 const Text('Coming Soon',
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                buildMovieList(),
+                buildMovieList(upcoming),
                 const Text(
                   'Top Categories',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                buildMovieList(),
+                buildMovieList(trending),
               ],
             ),
           )
@@ -42,23 +49,30 @@ class MovieScreen extends StatelessWidget {
     );
   }
 
-  Widget buildMovieList() {
+  Widget buildMovieList(String url) {
     return Container(
       height: 160,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      child: ListView(
-        // physics: NeverScrollableScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        children: [
-          buildMovieCard('https://picsum.photos/200/200'),
-          buildMovieCard('https://picsum.photos/200/200'),
-          buildMovieCard('https://picsum.photos/200/200'),
-          buildMovieCard('https://picsum.photos/200/200'),
-          buildMovieCard('https://picsum.photos/200/200'),
-          buildMovieCard('https://picsum.photos/200/200'),
-          // Add more movie cards as needed
-        ],
-      ),
+      child: BlocBuilder<MoviesBloc, MoviesState>(builder: (context, state) {
+        if (state is MoviesLoading) {
+          return const CupertinoActivityIndicator(radius: 30);
+        } else if (state is MoviesError) {
+          return Center(
+            child: Text(state.message),
+          );
+        } else if (state is MoviesLoaded) {
+          final movies =
+              state.movies[url]; // Get movies based on the provided URL
+          return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return buildMovieCard(movies![index].backdropPath);
+              });
+        } else {
+          return const Text('Something happened');
+        }
+      }),
     );
   }
 
@@ -81,7 +95,7 @@ class MovieScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         child: Image.network(
           imageUrl,
-          fit: BoxFit.cover,
+          fit: BoxFit.fitHeight,
           loadingBuilder: (context, child, loadingProgress) {
             if (loadingProgress == null) return child;
             return Stack(
