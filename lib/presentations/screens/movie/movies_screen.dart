@@ -1,6 +1,7 @@
+import 'package:duka/presentations/screens/movie/widgets/calender.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_sliverDelgate.dart';
+import 'widgets/custom_sliverDelgate.dart';
 
 class MovieScreen extends StatelessWidget {
   final Map<String, dynamic> arguments;
