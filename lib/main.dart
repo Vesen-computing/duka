@@ -1,4 +1,3 @@
-import 'package:duka/constants/constants.dart';
 import 'package:duka/logic/bloc/movies/movies_event.dart';
 import 'package:duka/repository/movie_repository.dart';
 import 'package:flutter/material.dart';

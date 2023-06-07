@@ -5,9 +5,9 @@ import '../../../constants/routes.dart' as route;
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
-  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
+  final _phoneNumberController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +60,7 @@ class SignUpScreen extends StatelessWidget {
                           color: Colors.black.withOpacity(.1)),
                       child: textFieldWidget(
                           label: 'Enter Email',
-                          controller: _usernameController,
+                          controller: _emailController,
                           prefixIcon: const Icon(Icons.person_2_sharp)),
                     ),
                     const SizedBox(height: 10),
@@ -70,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
                           color: Colors.black.withOpacity(.1)),
                       child: textFieldWidget(
                           label: 'Enter Phone Number',
-                          controller: _usernameController,
+                          controller: _phoneNumberController,
                           prefixIcon: const Icon(Icons.person_2_sharp)),
                     ),
                     const SizedBox(height: 10),

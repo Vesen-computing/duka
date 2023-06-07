@@ -1,17 +1,26 @@
-// ignore_for_file: void_checks
-
 import 'package:flutter/material.dart';
 
 import 'package:duka/constants/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../constants/routes.dart' as route;
+import '../../logic/bloc/movies/movies_bloc.dart';
+import '../../logic/bloc/movies/movies_event.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/date_transaction.dart';
 import '../widgets/featured_service.dart';
 import '../widgets/recent_transaction_card.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+class Dashboard extends StatefulWidget {
+  const Dashboard({Key? key}) : super(key: key);
+
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  int selectedIndex = 0;
+  List<String> dateRanges = ['Today', 'This Week', 'This Month', 'Six Months'];
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +44,8 @@ class Dashboard extends StatelessWidget {
                         Builder(
                           builder: (context) {
                             return GestureDetector(
-                              onTap: () => Scaffold.of(context).openDrawer(),
+                              onTap: () =>
+                                  Scaffold.of(context).openDrawer(),
                               child: const CircleAvatar(
                                 radius: 18,
                                 backgroundColor: Colors.white,
@@ -93,7 +103,7 @@ class Dashboard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      //Buy Airtime
+                      // Buy Airtime
                       FeaturedServiceWidget(
                         onTap: () {
                           Navigator.of(context).pushNamed(
@@ -108,9 +118,10 @@ class Dashboard extends StatelessWidget {
                         icon: Icons.phone_android_rounded,
                         title: 'Buy airtime',
                       ),
-                      //Movies
+                      // Movies
                       FeaturedServiceWidget(
                         onTap: () {
+                          context.read<MoviesBloc>().add(FetchMovies());
                           Navigator.of(context).pushNamed(
                             route.movies,
                             arguments: {
@@ -123,7 +134,7 @@ class Dashboard extends StatelessWidget {
                         icon: Icons.theaters_outlined,
                         title: 'Movies',
                       ),
-                      //Nairobi Water
+                      // Nairobi Water
                       FeaturedServiceWidget(
                         onTap: () {
                           Navigator.of(context).pushNamed(
@@ -138,7 +149,7 @@ class Dashboard extends StatelessWidget {
                         icon: Icons.water_drop_rounded,
                         title: 'Nairobi water',
                       ),
-                      //Pay Tv
+                      // Pay Tv
                       FeaturedServiceWidget(
                         onTap: () {
                           Navigator.of(context).pushNamed(
@@ -157,14 +168,22 @@ class Dashboard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [Text('Recent transactions'), Text('See All')]),
                   const SizedBox(height: 15),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      DateTransaction(title: 'Today', active: true),
-                      DateTransaction(title: 'This Week'),
-                      DateTransaction(title: 'This Month'),
-                      DateTransaction(title: 'Six Months'),
-                    ],
+                    children: dateRanges.map((dateRange) {
+                      int index = dateRanges.indexOf(dateRange);
+                      bool isSelected = index == selectedIndex;
+                      return DateTransaction(
+                        title: dateRange,
+                        active: isSelected,
+                        onTap: () {
+                          if (isSelected) return; // Do nothing if already selected
+                          setState(() {
+                            selectedIndex = index;
+                          });
+                        },
+                      );
+                    }).toList(),
                   ),
                   const SizedBox(height: 15),
                   const RecentTransactionCard(
