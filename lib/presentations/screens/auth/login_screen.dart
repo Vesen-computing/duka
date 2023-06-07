@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
               const Column(
                 children: [
                   Text(
-                    'Savey',
+                    'Duka',
                     style: TextStyle(
                         fontFamily: 'Ubuntu',
                         fontSize: 30,

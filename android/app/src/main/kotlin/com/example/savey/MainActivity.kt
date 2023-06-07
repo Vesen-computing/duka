@@ -1,4 +1,4 @@
-package com.example.savey
+package com.example.duka
 
 import io.flutter.embedding.android.FlutterActivity
 

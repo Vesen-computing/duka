@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:savey/constants/theme.dart';
+import 'package:duka/constants/theme.dart';
 
 import '../../constants/routes.dart' as route;
 import '../widgets/custom_drawer.dart';
@@ -93,6 +93,7 @@ class Dashboard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      //Buy Airtime
                       FeaturedServiceWidget(
                         onTap: () {
                           Navigator.of(context).pushNamed(
@@ -103,21 +104,26 @@ class Dashboard extends StatelessWidget {
                             },
                           );
                         },
-                        color: primaryColor,
+                        color: greenColor,
                         icon: Icons.phone_android_rounded,
                         title: 'Buy airtime',
                       ),
+                      //Movies
                       FeaturedServiceWidget(
                         onTap: () {
                           Navigator.of(context).pushNamed(
-                            route.payment,
-                            arguments: {"page": "Tv", "title": "Pay Tv"},
+                            route.movies,
+                            arguments: {
+                              "page": "Movies",
+                              "title": "Choose Movies"
+                            },
                           );
                         },
-                        color: deepBlueColor,
-                        icon: Icons.live_tv_outlined,
-                        title: 'Pay Tv',
+                        color: redColor,
+                        icon: Icons.theaters_outlined,
+                        title: 'Movies',
                       ),
+                      //Nairobi Water
                       FeaturedServiceWidget(
                         onTap: () {
                           Navigator.of(context).pushNamed(
@@ -131,6 +137,18 @@ class Dashboard extends StatelessWidget {
                         color: lightBlueColor,
                         icon: Icons.water_drop_rounded,
                         title: 'Nairobi water',
+                      ),
+                      //Pay Tv
+                      FeaturedServiceWidget(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            route.payment,
+                            arguments: {"page": "Tv", "title": "Pay Tv"},
+                          );
+                        },
+                        color: deepBlueColor,
+                        icon: Icons.live_tv_outlined,
+                        title: 'Pay Tv',
                       ),
                     ],
                   ),
@@ -152,7 +170,7 @@ class Dashboard extends StatelessWidget {
                   const RecentTransactionCard(
                       title: 'Airtime',
                       icon: Icons.phone_android_rounded,
-                      iconColor: primaryColor,
+                      iconColor: greenColor,
                       amount: '-S423.43',
                       date: '10 oct 21'),
                   const RecentTransactionCard(
@@ -172,7 +190,7 @@ class Dashboard extends StatelessWidget {
                   const RecentTransactionCard(
                     title: 'Airtime',
                     icon: Icons.phone_android_rounded,
-                    iconColor: primaryColor,
+                    iconColor: greenColor,
                     amount: '-S423.43',
                     date: '10 oct 21',
                   ),

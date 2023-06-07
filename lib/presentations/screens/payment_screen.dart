@@ -1,6 +1,7 @@
+import 'package:duka/constants/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:savey/presentations/widgets/payment_checkbox_row.dart';
-import 'package:savey/presentations/widgets/payment_text_widget.dart';
+import 'package:duka/presentations/widgets/payment_checkbox_row.dart';
+import 'package:duka/presentations/widgets/payment_text_widget.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({Key? key, required this.arguments}) : super(key: key);
@@ -37,12 +38,17 @@ class PaymentScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(primaryColor.withOpacity(.8)),
                   fixedSize: MaterialStateProperty.all(Size(size.width, 50)),
                   padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10))),
                 ),
-                child: Text('PAY ${page.toUpperCase()}'),
+                child: Text(
+                  'PAY ${page.toUpperCase()}',
+                  style: const TextStyle(color: whiteColor),
+                ),
               ),
             ],
           ),

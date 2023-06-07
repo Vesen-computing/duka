@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "savey" "\0"
+            VALUE "FileDescription", "duka" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "savey" "\0"
+            VALUE "InternalName", "duka" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "savey.exe" "\0"
-            VALUE "ProductName", "savey" "\0"
+            VALUE "OriginalFilename", "duka.exe" "\0"
+            VALUE "ProductName", "duka" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
