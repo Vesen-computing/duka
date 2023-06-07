@@ -1,12 +1,5 @@
-import 'package:duka/logic/bloc/movies/movies_event.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../constants/constants.dart';
-import '../../logic/bloc/movies/movies_bloc.dart';
-import '../../logic/bloc/movies/movies_state.dart';
-import '../widgets/custom_sliverDelgate.dart';
+
 
 class MovieScreen extends StatelessWidget {
   final Map<String, dynamic> arguments;

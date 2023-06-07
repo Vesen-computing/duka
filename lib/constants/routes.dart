@@ -4,7 +4,7 @@ import 'package:duka/presentations/screens/payment_screen.dart';
 import '../presentations/screens/auth/sign_up_screen.dart';
 import '../presentations/screens/dashboard.dart';
 import '../presentations/screens/auth/login_screen.dart';
-import '../presentations/screens/movies_screen.dart';
+import '../presentations/screens/movie/movies_screen.dart';
 
 const String login = 'login';
 const String dashboard = 'dashboard';
